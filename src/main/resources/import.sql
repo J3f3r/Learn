@@ -17,3 +17,5 @@ INSERT INTO tb_course (name, img_uri, img_gray_uri) VALUES ('Bootcamp HTML', 'ht
 
 INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('1.0', '2025-01-01T00:00:00Z', '2027-12-31T23:59:59Z', 1);
 INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('2.0', '2025-01-01T00:00:00Z', '2027-12-31T23:59:59Z', 1);
+
+INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Primeira notificação de teste', '2026-10-02T17:00:00Z', false, '/offers/1/resource/1', 1)
