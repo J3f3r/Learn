@@ -19,3 +19,9 @@ INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('1.0
 INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('2.0', '2025-01-01T00:00:00Z', '2027-12-31T23:59:59Z', 1);
 
 INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Primeira notificação de teste', '2026-10-02T17:00:00Z', false, '/offers/1/resource/1', 1)
+
+INSERT INTO tb_resource (title, description, position, img_url, type, offer_id) VALUES ('Trilha HTML', 'Trilha principal do curso', 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDrcWfagAgd-Kx5fCTSV8_FlCthrcF2HOu6H854liu1Q&s', 1, 1);
+INSERT INTO tb_resource (title, description, position, img_url, type, offer_id) VALUES ('Forum', 'Tire suas dúvidas', 2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDrcWfagAgd-Kx5fCTSV8_FlCthrcF2HOu6H854liu1Q&s', 2, 1);
+INSERT INTO tb_resource (title, description, position, img_url, type, offer_id) VALUES ('Lives', 'Lives exclusivas para as turmas', 3, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDrcWfagAgd-Kx5fCTSV8_FlCthrcF2HOu6H854liu1Q&s', 0, 1);
+
+
