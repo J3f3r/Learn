@@ -84,6 +84,8 @@ public class Offer implements Serializable{
 	public void setCourse(Course course) {
 		this.course = course;
 	}
+	
+	// aqui não usa get na lista para evitar prejuízo de memória e perda de desempenho desnecessário
 
 	@Override
 	public int hashCode() {

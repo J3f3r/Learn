@@ -90,9 +90,6 @@ public class User implements Serializable{
 		this.roles = roles;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
 
 	@Override
 	public int hashCode() {
