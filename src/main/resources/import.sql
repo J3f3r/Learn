@@ -28,6 +28,9 @@ INSERT INTO tb_section (title, description, position, img_url, resource_id, prer
 INSERT INTO tb_section (title, description, position, img_url, resource_id, prerequisite_id) VALUES ('Capítulo 2', 'Neste capítulo iremos continuar a trilha', 1,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDrcWfagAgd-Kx5fCTSV8_FlCthrcF2HOu6H854liu1Q&s', 1, 1)
 INSERT INTO tb_section (title, description, position, img_url, resource_id, prerequisite_id) VALUES ('Capítulo 3', 'Neste capítulo iremos encerrar a trilha', 1,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDrcWfagAgd-Kx5fCTSV8_FlCthrcF2HOu6H854liu1Q&s', 1, 2)
 
+INSERT INTO tb_enrollment (user_id, offer_id, enroll_moment, refund_moment, avaliable, only_update) VALUES (1, 1, '2026-09-01T00:00:00Z', null, true, false);
+INSERT INTO tb_enrollment (user_id, offer_id, enroll_moment, refund_moment, avaliable, only_update) VALUES (2, 1, '2026-09-01T00:00:00Z', null, true, false);
+
 
 
 
