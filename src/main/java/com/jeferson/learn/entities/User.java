@@ -30,7 +30,7 @@ public class User implements Serializable{
 	private String email;
 	private String password;
 	
-	@ManyToMany(fetch=FetchType.EAGER)
+	@ManyToMany(fetch=FetchType.EAGER)// quero carregar automaticamente as informações associadas
 	@JoinTable(name = "tb_user_role",
 			joinColumns = @JoinColumn(name = "user_id"),
 			inverseJoinColumns = @JoinColumn(name = "role_id"))
