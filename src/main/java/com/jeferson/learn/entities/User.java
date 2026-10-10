@@ -39,6 +39,9 @@ public class User implements Serializable{
 	@OneToMany(mappedBy = "user")
 	private List<Notification> notifications = new ArrayList<>();
 	
+	@OneToMany(mappedBy = "author")
+	private List<Topic> topics = new ArrayList<>();
+	
 	public User() {}
 
 	public User(Long id, String name, String email, String password, Set<Role> roles) {
@@ -90,6 +93,7 @@ public class User implements Serializable{
 		this.roles = roles;
 	}
 
+	// notifcação e topicos não devem ter get pois um usuário gerar centenas e pode gerar sobrecarga de memória desnecessária
 
 	@Override
 	public int hashCode() {

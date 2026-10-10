@@ -1,7 +1,9 @@
 package com.jeferson.learn.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -15,6 +17,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -41,7 +44,10 @@ public abstract class Lesson implements Serializable{
 				@JoinColumn(name = "offer_id")
 		}
 	)
-	private Set<Enrollment> enrollmentsDones = new HashSet<>();
+	private Set<Enrollment> enrollmentsDone = new HashSet<>();
+	
+	@OneToMany(mappedBy = "lesson")
+	private List<Deliver> deliveries = new ArrayList<>();
 	
 	public Lesson() {}
 
@@ -85,8 +91,8 @@ public abstract class Lesson implements Serializable{
 		this.section = section;
 	}
 
-	public Set<Enrollment> getEnrollmentsDones() {
-		return enrollmentsDones;
+	public Set<Enrollment> getEnrollmentsDone() {
+		return enrollmentsDone;
 	}
 
 	@Override

@@ -2,7 +2,10 @@ package com.jeferson.learn.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import com.jeferson.learn.entities.pk.EnrollmentPK;
@@ -11,6 +14,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -26,15 +30,18 @@ public class Enrollment implements Serializable{
 	
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant refundMoment;
-	private boolean avaliable;
+	private boolean available;
 	private boolean onlyUpdate;
 	
-	@ManyToMany(mappedBy = "enrollmentsDones")
+	@ManyToMany(mappedBy = "enrollmentsDone")
 	private Set<Lesson> lessonsDone = new HashSet<>();
+	
+	@OneToMany(mappedBy = "enrollment")
+	private List<Deliver> deliveries = new ArrayList<>();
 	
 	public Enrollment() {}
 
-	public Enrollment(User user, Offer offer, Instant enrollMoment, Instant refundMoment, boolean avaliable,
+	public Enrollment(User user, Offer offer, Instant enrollMoment, Instant refundMoment, boolean available,
 			boolean onlyUpdate) {
 		super();
 		
@@ -44,7 +51,7 @@ public class Enrollment implements Serializable{
 		
 		this.enrollMoment = enrollMoment;
 		this.refundMoment = refundMoment;
-		this.avaliable = avaliable;
+		this.available = available;
 		this.onlyUpdate = onlyUpdate;
 	}
 
@@ -54,7 +61,7 @@ public class Enrollment implements Serializable{
 		return id.getUser();
 	}
 	
-	public void setUser(User user) {
+	public void setStudent(User user) {
 		id.setUser(user);
 	}
 	
@@ -89,12 +96,12 @@ public class Enrollment implements Serializable{
 		this.refundMoment = refundMoment;
 	}
 
-	public boolean isAvaliable() {
-		return avaliable;
+	public boolean isAvailable() {
+		return available;
 	}
 
-	public void setAvaliable(boolean avaliable) {
-		this.avaliable = avaliable;
+	public void setAvailable(boolean available) {
+		this.available = available;
 	}
 
 	public boolean isOnlyUpdate() {
@@ -104,6 +111,25 @@ public class Enrollment implements Serializable{
 	public void setOnlyUpdate(boolean onlyUpdate) {
 		this.onlyUpdate = onlyUpdate;
 	}
-	
-	
+
+	public List<Deliver> getDeliveries() {
+		return deliveries;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Enrollment other = (Enrollment) obj;
+		return Objects.equals(id, other.id);
+	}
 }

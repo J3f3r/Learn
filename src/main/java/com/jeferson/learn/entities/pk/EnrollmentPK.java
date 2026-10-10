@@ -1,5 +1,6 @@
 package com.jeferson.learn.entities.pk;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import com.jeferson.learn.entities.Offer;
@@ -10,7 +11,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Embeddable
-public class EnrollmentPK {
+public class EnrollmentPK implements Serializable{
+	private static final long serialVersionUID = 1L;
 
 	@ManyToOne
 	@JoinColumn(name = "user_id")
