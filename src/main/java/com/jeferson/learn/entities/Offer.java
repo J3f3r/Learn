@@ -95,6 +95,14 @@ public class Offer implements Serializable{
 	
 	// aqui não usa get na lista para evitar prejuízo de memória e perda de desempenho desnecessário
 
+	public List<Resource> getResources() {
+		return resources;
+	}
+
+	public List<Topic> getTopics() {
+		return topics;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

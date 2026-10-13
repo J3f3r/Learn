@@ -89,11 +89,11 @@ public class User implements Serializable{
 		return roles;
 	}
 
-	public void setRoles(Set<Role> roles) {
-		this.roles = roles;
-	}
+	// notifcação e topicos podem NÃO ter get pois um usuário gerar centenas e pode gerar sobrecarga de memória desnecessária
 
-	// notifcação e topicos não devem ter get pois um usuário gerar centenas e pode gerar sobrecarga de memória desnecessária
+	public List<Notification> getNotifications() {
+		return notifications;
+	}
 
 	@Override
 	public int hashCode() {
